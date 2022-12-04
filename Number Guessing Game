@@ -1,0 +1,41 @@
+import java.util.*;
+public class number
+{
+     public static void main(String[] args)
+     {
+		int attempt = 1;
+        int Number_guessed = 0;
+        int Lucky_number = (int) (Math.random() * 99 + 1);          
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Welcome to Number Guessing Game...\nYou have Maximum 5 Attempts Limit...\n");
+        do 
+        {
+            System.out.println("Enter a Guess Number between 1 to 100");
+            if(sc.hasNextInt()) 
+            {
+                Number_guessed = sc.nextInt();
+                if (Number_guessed == Lucky_number)
+                {    
+                    System.out.println("CONGRATS!!!\nYou Guessed the Right Number.\nYou Win the Game!");
+                    break;
+                }
+                else if (Number_guessed < Lucky_number)
+                    System.out.println("Your Guess Number is Smaller...TRY AGAIN!\n");
+                else if (Number_guessed > Lucky_number)
+                    System.out.println("Your Guess Number is Greater...TRY AGAIN!\n");
+                if(attempt == 5) 
+                {
+                    System.out.println("You have exceeded the maximum attempt limit.");
+                    System.out.println("The Lucky number was " + Lucky_number);
+                    break;
+                }
+                attempt++;
+            }
+            else 
+            {
+                System.out.println("Enter a Valid Integer Number");
+                break;
+            }
+        }while (Number_guessed != Lucky_number);
+	}
+}
